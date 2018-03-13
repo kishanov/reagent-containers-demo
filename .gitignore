@@ -1,0 +1,7 @@
+/.idea
+*.iml
+/*.log
+/target
+/*-init.clj
+/resources/public/js/compiled
+out
