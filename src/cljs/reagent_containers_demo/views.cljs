@@ -4,7 +4,9 @@
             [reagent-containers-demo.events :as events]
             [reagent-containers-demo.subs :as subs]
 
-            [reagent-containers-demo.steps.markup-containers :as markup-step]))
+            [reagent-containers-demo.steps.markup-containers :as markup-step]
+            [reagent-containers-demo.steps.parametrized-containers :as params-step]
+            ))
 
 
 
@@ -18,7 +20,9 @@
 
 (defn steps [current-route-key]
   (->> (list [::routes/landing "Introduction" "Show very basic container"]
-             [::routes/layout "Layout containers" "Use containers to create reusable layouts"])
+             [::routes/layout "Layout containers" "Use containers to create reusable layouts"]
+             [::routes/params "Parametrized" "Use function arguments to create specific versions of a container"]
+             )
        (map (fn [[route-key title desc]]
               [:a.step
                {:class    (when (= current-route-key route-key) "active")
@@ -47,4 +51,5 @@
         [:div.section
          (condp = route-key
            ::routes/layout [markup-step/grid-container-panel]
+           ::routes/params [params-step/main-panel]
            [markup-step/basic-container-panel])]]]]]))
