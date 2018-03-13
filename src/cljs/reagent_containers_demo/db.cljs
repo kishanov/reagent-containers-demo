@@ -7,7 +7,8 @@
 (def router
   (r/router [["/" ::routes/landing]
              ["/layout-containers" ::routes/layout]
-             ["/param-containers" ::routes/params]]))
+             ["/param-containers" ::routes/params]
+             ["/stateful-containers" ::routes/stateful]]))
 
 
 (def default-db

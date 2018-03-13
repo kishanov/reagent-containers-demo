@@ -6,7 +6,7 @@
 
             [reagent-containers-demo.steps.markup-containers :as markup-step]
             [reagent-containers-demo.steps.parametrized-containers :as params-step]
-            ))
+            [reagent-containers-demo.steps.stateful-containers :as stateful-step]))
 
 
 
@@ -22,6 +22,7 @@
   (->> (list [::routes/landing "Introduction" "Show very basic container"]
              [::routes/layout "Layout containers" "Use containers to create reusable layouts"]
              [::routes/params "Parametrized" "Use function arguments to create specific versions of a container"]
+             [::routes/stateful "Stateful" "Build tabs component using containers"]
              )
        (map (fn [[route-key title desc]]
               [:a.step
@@ -52,4 +53,5 @@
          (condp = route-key
            ::routes/layout [markup-step/grid-container-panel]
            ::routes/params [params-step/main-panel]
+           ::routes/stateful [stateful-step/main-panel]
            [markup-step/basic-container-panel])]]]]]))
