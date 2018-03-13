@@ -4,7 +4,7 @@
             [reagent-containers-demo.events :as events]
             [reagent-containers-demo.subs :as subs]
 
-            [reagent-containers-demo.steps.markup-containers]))
+            [reagent-containers-demo.steps.markup-containers :as markup-step]))
 
 
 
@@ -17,7 +17,7 @@
 
 
 (defn steps [current-route-key]
-  (->> (list [::routes/landing "Introduction" ""]
+  (->> (list [::routes/landing "Introduction" "Show very basic container"]
              [::routes/layout "Layout containers" "Use containers to create reusable layouts"])
        (map (fn [[route-key title desc]]
               [:a.step
@@ -46,5 +46,5 @@
         ^{:key route-key}
         [:div.section
          (condp = route-key
-           ::routes/layout [:div "layout"]
-           [reagent-containers-demo.steps.markup-containers/main-panel])]]]]]))
+           ::routes/layout [markup-step/grid-container-panel]
+           [markup-step/basic-container-panel])]]]]]))
