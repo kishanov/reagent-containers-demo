@@ -24,6 +24,11 @@
     [:a {:href "#"} "contact administrator"]]])
 
 
+[error-message
+ "Oops"
+ [:div "Something went wrong. Please, "
+  [:a {:href "#"} "contact administrator"]]]
+
 (defn success-message-usage []
   [success-message
    "Submitted successfully"
